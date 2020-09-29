@@ -1,9 +1,14 @@
+
 #include<iostream>
-#include<windows.h>
+#include<math.h>
 
 int main()
 {
-    std::cout<<"Yolo!";
-    system("PAUSE");
-    return 0;
+	double pp{std::pow(10,-9)};
+	std::cout.setf(std::ios::hex, std::ios::basefield);
+	std::cout.setf(std::ios::showbase);
+	std::cout <<22 << std::endl;
+	std::cout.unsetf(std::ios::showbase);
+	std::cout << 22 << std::endl;
+	return 0;
 }

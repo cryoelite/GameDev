@@ -1,0 +1,2 @@
+C:\Users\arvin\Documents\GitHub\GameDev\GameAlpha\x64\Debug\GameAlpha.exe
+C:\Users\arvin\Documents\GitHub\GameDev\GameAlpha\x64\Debug\GameAlpha.pdb
