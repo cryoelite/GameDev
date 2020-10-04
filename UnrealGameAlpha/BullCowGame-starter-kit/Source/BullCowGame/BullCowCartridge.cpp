@@ -4,22 +4,35 @@
 void UBullCowCartridge::OnInput(const FString &Input) // When the player hits enter
 {
     ClearScreen();
-    FString OutputString{TEXT("You have ")};
-    OutputString.AppendInt(Lives);
-    OutputString.Append(TEXT("Lives"));
-    PrintLine(Input);
-    PrintLine(OutputString);
-    if (CheckUserInput(Input))
+
+    if (Lives > 0)
     {
-        PrintLine("Yay");
+        PrintLine(FString::Printf(TEXT("You have %i lives left."), Lives));
+        if (CheckUserInput(Input))
+        {
+            PrintLine("Yay");
+        }
+        else if (!Input.IsEmpty())
+        {
+            PrintLine("Bhak");
+            Lives--;
+        }
+    }
+    else if (!bGameOver)
+    {
+        bGameOver = true;
+        PrintLine(TEXT("You have run out of lives, press enter to start anew!"));
+        PrintLine(FString::Printf(TEXT("The word was %s"), *HiddenWord));
     }
     else
     {
-        PrintLine("Bhak");
-        Lives--;
+        ClearScreen();
+        bGameOver = false;
+        Greet();
+        InitialiseGameVars();
+        Question();
     }
 }
-
 void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
@@ -62,12 +75,12 @@ void UBullCowCartridge::SetLives(const int32 &NewLifeVal)
 
 void UBullCowCartridge::SetHiddenWordLength()
 {
-    HiddenWordLength=HiddenWord.Len();
+    HiddenWordLength = HiddenWord.Len();
 }
 
 bool UBullCowCartridge::CheckUserInput(const FString &UserInput) const
 {
-    if (UserInput == HiddenWord && Lives>0)
+    if (UserInput == HiddenWord && Lives > 0)
         return true;
     else
         return false;
