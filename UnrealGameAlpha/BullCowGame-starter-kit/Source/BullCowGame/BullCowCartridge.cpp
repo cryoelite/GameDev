@@ -2,9 +2,6 @@
 #include "BullCowCartridge.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
-#include "RandomGenerator.h"
-
-URandomGenerator RandEng;
 
 void UBullCowCartridge::OnInput(const FString &Input) // When the player hits enter
 {
@@ -45,7 +42,6 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
     CreateHiddenWordBook();
-    RandEng=URandomGenerator(HiddenWordBookLength);
     GameStateManager();
 }
 
@@ -60,30 +56,7 @@ void UBullCowCartridge::CreateHiddenWordBook()
 {
     FString path{FPaths::ProjectContentDir()};
     path /= "HiddenWords/HiddenWordsBook.txt";
-    TArray<FString> TempStringArray{};
-    FFileHelper::LoadFileToStringArray(TempStringArray, *path);
-    int i{};
-    for (auto &word : TempStringArray)
-    {
-        TSet<TCHAR> TempSet{};
-        for (auto &letter : word)
-        {
-            TempSet.Add(letter);
-        }
-        if (TempSet.Num() >= 4 && TempSet.Num() == word.Len())
-            HiddenWordBook.Add(TempSet);
-    }
-    HiddenWordBookLength=HiddenWordBook.Num();
-    auto TempWords{HiddenWordBook.Array()};
-    for(auto &Word:TempWords)
-    {
-        FString TempString{};
-        for(auto &Letters:Word)
-        {
-            TempString+=Letters;
-        }
-        StringHiddenWordBook.Add(TempString);
-    }
+    FFileHelper::LoadFileToStringArray(HiddenWordBook, *path);
 }
 
 void UBullCowCartridge::Greet()
@@ -93,8 +66,8 @@ void UBullCowCartridge::Greet()
 
 void UBullCowCartridge::InitialiseGameVars()
 {
-    int32 GetNum{RandEng.GenerateRand()};
-    SetHiddenWord(StringHiddenWordBook[GetNum]);
+
+    SetHiddenWord(TEXT("cake"));
     SetHiddenWordLength();
     SetLives(HiddenWordLength);
 }
@@ -103,7 +76,7 @@ void UBullCowCartridge::Question() const
 {
     FString OutputString{TEXT("Guess the ")};
     OutputString.AppendInt(HiddenWordLength);
-    OutputString.Append(TEXT(" letter word !"));
+    OutputString.Append(TEXT(" letter word"));
     PrintLine(OutputString);
     PrintLine(TEXT("Press Enter to get started."));
 }
