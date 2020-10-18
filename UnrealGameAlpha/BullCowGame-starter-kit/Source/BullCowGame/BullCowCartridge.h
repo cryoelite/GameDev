@@ -25,12 +25,14 @@ public:
 	void GameStateManager();
 
 	bool CheckUserInput(const FString &UserInput) const;
-
 	// Your declarations go below!
 private:
 	FString HiddenWord{};
 	int32 HiddenWordLength{};
 	int32 Lives{};
 	bool bGameOver{};
-	TArray<FString> HiddenWordBook{};
+	TSet<TSet<TCHAR>> HiddenWordBook{};
+	int32 HiddenWordBookLength{};
+	TArray<FString> StringHiddenWordBook{};
+	
 };
