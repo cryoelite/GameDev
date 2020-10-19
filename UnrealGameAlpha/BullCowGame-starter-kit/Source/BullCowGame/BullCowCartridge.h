@@ -16,23 +16,23 @@ public:
 	virtual void OnInput(const FString &Input) override;
 
 	void Greet();
+	void CreateHiddenWordBook();
+	void GameStateManager();
 	void InitialiseGameVars();
 	void SetHiddenWord(const FString &TempHIddenWord);
 	void SetHiddenWordLength();
 	void SetLives(const int32 &NewLifeVal);
 	void Question() const;
-	void CreateHiddenWordBook();
-	void GameStateManager();
-
 	bool CheckUserInput(const FString &UserInput) const;
 	// Your declarations go below!
 private:
+	bool bGameOver{};
+	TSet<FString> HiddenWordBook{};
+	int32 HiddenWordBookLength{}; 
+	TArray<FString> StringHiddenWordBook{};
 	FString HiddenWord{};
 	int32 HiddenWordLength{};
 	int32 Lives{};
-	bool bGameOver{};
-	TSet<TSet<TCHAR>> HiddenWordBook{};
-	int32 HiddenWordBookLength{};
-	TArray<FString> StringHiddenWordBook{};
-	
+
+
 };

@@ -4,7 +4,7 @@
 #include "Misc/Paths.h"
 #include "RandomGenerator.h"
 
-URandomGenerator RandEng;
+URandomGenerator RandEng{URandomGenerator()};
 
 void UBullCowCartridge::OnInput(const FString &Input) // When the player hits enter
 {
@@ -41,11 +41,16 @@ void UBullCowCartridge::OnInput(const FString &Input) // When the player hits en
         GameStateManager();
     }
 }
+void UBullCowCartridge::Greet()
+{
+    PrintLine(TEXT("Welcome to BullCow game yo"));
+}
 void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
+
     CreateHiddenWordBook();
-    RandEng=URandomGenerator(HiddenWordBookLength);
+    RandEng.init(HiddenWordBookLength);
     GameStateManager();
 }
 
@@ -62,43 +67,45 @@ void UBullCowCartridge::CreateHiddenWordBook()
     path /= "HiddenWords/HiddenWordsBook.txt";
     TArray<FString> TempStringArray{};
     FFileHelper::LoadFileToStringArray(TempStringArray, *path);
-    int i{};
+    
     for (auto &word : TempStringArray)
     {
-        TSet<TCHAR> TempSet{};
-        for (auto &letter : word)
+        TSet<TCHAR> TempSet;
+        for (TCHAR &letter : word)
         {
             TempSet.Add(letter);
         }
         if (TempSet.Num() >= 4 && TempSet.Num() == word.Len())
-            HiddenWordBook.Add(TempSet);
-    }
-    HiddenWordBookLength=HiddenWordBook.Num();
+            HiddenWordBook.Add(word);
+    } 
     auto TempWords{HiddenWordBook.Array()};
-    for(auto &Word:TempWords)
+    for (auto &word : TempWords)
     {
-        FString TempString{};
-        for(auto &Letters:Word)
-        {
-            TempString+=Letters;
-        }
-        StringHiddenWordBook.Add(TempString);
-    }
-}
-
-void UBullCowCartridge::Greet()
-{
-    PrintLine(TEXT("Welcome to BullCow game yo"));
+        StringHiddenWordBook.Add(word);
+    } 
+    HiddenWordBookLength = StringHiddenWordBook.Num();
 }
 
 void UBullCowCartridge::InitialiseGameVars()
 {
     int32 GetNum{RandEng.GenerateRand()};
+    PrintLine(TEXT("%i yo"), GetNum);
     SetHiddenWord(StringHiddenWordBook[GetNum]);
     SetHiddenWordLength();
     SetLives(HiddenWordLength);
 }
-
+void UBullCowCartridge::SetHiddenWord(const FString &TempHiddenWord)
+{
+    HiddenWord = TempHiddenWord;
+}
+void UBullCowCartridge::SetHiddenWordLength()
+{
+    HiddenWordLength = HiddenWord.Len();
+}
+void UBullCowCartridge::SetLives(const int32 &NewLifeVal)
+{
+    Lives = NewLifeVal;
+}
 void UBullCowCartridge::Question() const
 {
     FString OutputString{TEXT("Guess the ")};
@@ -106,21 +113,6 @@ void UBullCowCartridge::Question() const
     OutputString.Append(TEXT(" letter word !"));
     PrintLine(OutputString);
     PrintLine(TEXT("Press Enter to get started."));
-}
-
-void UBullCowCartridge::SetHiddenWord(const FString &TempHiddenWord)
-{
-    HiddenWord = TempHiddenWord;
-}
-
-void UBullCowCartridge::SetLives(const int32 &NewLifeVal)
-{
-    Lives = NewLifeVal;
-}
-
-void UBullCowCartridge::SetHiddenWordLength()
-{
-    HiddenWordLength = HiddenWord.Len();
 }
 
 bool UBullCowCartridge::CheckUserInput(const FString &UserInput) const

@@ -7,6 +7,7 @@ class URandomGenerator
     std::default_random_engine DefRandEng;
 
 public:
-    URandomGenerator(const int32 &limit);
+    URandomGenerator();
+    void init(const int32 &limit);
     int32 GenerateRand();
 };
