@@ -90,7 +90,7 @@ void UBullCowCartridge::CreateHiddenWordBook()
 void UBullCowCartridge::InitialiseGameVars()
 {
     int32 GetNum{RandEng.GenerateRand()};
-    PrintLine(TEXT("%i yo"), GetNum);
+    
     SetHiddenWord(StringHiddenWordBook[GetNum]);
     SetHiddenWordLength();
     SetLives(HiddenWordLength);
