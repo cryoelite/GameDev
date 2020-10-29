@@ -5,7 +5,7 @@
 #include "Misc/Paths.h"
 #include "RandomGenerator.h"
 
-URandomGenerator RandEng{URandomGenerator()};
+
 
 void UBullCowCartridge::OnInput(const FString &Input) // When the player hits enter
 {
@@ -109,10 +109,7 @@ void UBullCowCartridge::SetLives(const int32 &NewLifeVal)
 }
 void UBullCowCartridge::Question() const
 {
-    FString OutputString{TEXT("Guess the ")};
-    OutputString.AppendInt(HiddenWordLength);
-    OutputString.Append(TEXT(" letter word !"));
-    PrintLine(OutputString);
+    PrintLine(TEXT("Guess the %i letter word."),HiddenWordLength);
     PrintLine(TEXT("Press Enter to get started."));
 }
 
@@ -121,38 +118,23 @@ bool UBullCowCartridge::CheckUserInput(const FString &UserInput) const
 
     if (UserInput == HiddenWord)
         return true;
-    else if (!UserInput.IsEmpty())
+    /* else if (!UserInput.IsEmpty())
     {
-        int32 UserInputLength{UserInput.Len()};
-        int32 CorrectGuesses{};
-        int j{};
-        if (UserInputLength == HiddenWordLength)
+        int32 Bulls{};
+        int32 Cows{};
+        if(HiddenWordLength==UserInput.Len())
         {
-            for (int i{}; i < HiddenWordLength; ++i)
+            int32 flag{};
+            for(int32 i{};i<HiddenWordLength;++i)
             {
-                if (HiddenWord[i] == UserInput[i])
-                    CorrectGuesses++;
-            }
-        }
-        else if (UserInputLength < HiddenWordLength)
-        {
+                if(UserInput[i]==HiddenWord[i] && )
+                {
+                    Bulls++;
+                }
 
-            for (int i{}; i < HiddenWordLength; ++i, ++j)
-            {
-                if (j < UserInputLength && HiddenWord[i] == UserInput[j])
-                    CorrectGuesses++;
             }
         }
-        else
-        {
-            for (int i{}; i < UserInputLength; ++i, ++j)
-            {
-                if (j < UserInputLength && HiddenWord[j] == UserInput[i])
-                    CorrectGuesses++;
-            }
-        }
-        PrintLine("Wrong guess !");
-        PrintLine(FString::Printf(TEXT("You had %i letters at correct places"), CorrectGuesses));
-    }
+
+    } */
     return false;
 }

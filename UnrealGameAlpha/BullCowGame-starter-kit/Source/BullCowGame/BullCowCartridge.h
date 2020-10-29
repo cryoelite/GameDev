@@ -2,8 +2,9 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+
 #include "Console/Cartridge.h"
+#include "RandomGenerator.h"
 #include "BullCowCartridge.generated.h"
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
@@ -33,6 +34,8 @@ private:
 	FString HiddenWord{};
 	int32 HiddenWordLength{};
 	int32 Lives{};
+	URandomGenerator RandEng;
+
 
 
 };

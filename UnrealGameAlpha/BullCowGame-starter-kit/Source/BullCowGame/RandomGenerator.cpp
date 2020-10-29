@@ -1,15 +1,18 @@
 #include "RandomGenerator.h"
-#include<chrono>
 
-void URandomGenerator::init(const int32 &limit)
+void URandomGenerator::init(const int32 &InpLimit)
 {
-    DefRandEng=std::default_random_engine(std::chrono::system_clock::now().time_since_epoch().count());
-    IntDist=std::uniform_int_distribution<int>(0,limit);
+    Limit=InpLimit;
 }
 
-URandomGenerator::URandomGenerator()
-{}
 int32 URandomGenerator::GenerateRand()
 {
-    return IntDist(DefRandEng);
+    /* PerlinRand=FMath::PerlinNoise1D(CurrentVal);
+    CurrentVal+=0.01f;
+    PerlinRand+=1.0;
+    float PercentLimit{(PerlinRand*Limit)/2};
+    int32 RandVal{static_cast<int>(floor(PercentLimit))}; */
+    RandVal=FMath::RandRange(0,Limit);
+    return RandVal;
+    
 }

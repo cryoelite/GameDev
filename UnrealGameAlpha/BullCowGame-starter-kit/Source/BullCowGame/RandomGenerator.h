@@ -1,13 +1,14 @@
 #pragma once
-#include <random>
 #include "CoreMinimal.h"
+
 class URandomGenerator
 {
-    std::uniform_int_distribution<int32> IntDist;
-    std::default_random_engine DefRandEng;
+    int32 RandVal{};
+
+    int32 Limit{};
 
 public:
-    URandomGenerator();
-    void init(const int32 &limit);
+    URandomGenerator()=default;
+    void init(const int32 &InpLim);
     int32 GenerateRand();
 };
