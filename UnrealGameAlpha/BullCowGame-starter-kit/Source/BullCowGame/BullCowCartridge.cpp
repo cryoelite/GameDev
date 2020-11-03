@@ -5,8 +5,6 @@
 #include "Misc/Paths.h"
 #include "RandomGenerator.h"
 
-
-
 void UBullCowCartridge::OnInput(const FString &Input) // When the player hits enter
 {
     ClearScreen();
@@ -68,7 +66,7 @@ void UBullCowCartridge::CreateHiddenWordBook()
     path /= "HiddenWords/HiddenWordsBook.txt";
     TArray<FString> TempStringArray{};
     FFileHelper::LoadFileToStringArray(TempStringArray, *path);
-    
+
     for (auto &word : TempStringArray)
     {
         TSet<TCHAR> TempSet;
@@ -78,19 +76,19 @@ void UBullCowCartridge::CreateHiddenWordBook()
         }
         if (TempSet.Num() >= 4 && TempSet.Num() == word.Len())
             HiddenWordBook.Add(word);
-    } 
+    }
     auto TempWords{HiddenWordBook.Array()};
     for (auto &word : TempWords)
     {
         StringHiddenWordBook.Add(word);
-    } 
+    }
     HiddenWordBookLength = StringHiddenWordBook.Num();
 }
 
 void UBullCowCartridge::InitialiseGameVars()
 {
     int32 GetNum{RandEng.GenerateRand()};
-    
+
     SetHiddenWord(StringHiddenWordBook[GetNum]);
     SetHiddenWordLength();
     SetLives(HiddenWordLength);
@@ -109,7 +107,7 @@ void UBullCowCartridge::SetLives(const int32 &NewLifeVal)
 }
 void UBullCowCartridge::Question() const
 {
-    PrintLine(TEXT("Guess the %i letter word."),HiddenWordLength);
+    PrintLine(TEXT("Guess the %i letter word."), HiddenWordLength);
     PrintLine(TEXT("Press Enter to get started."));
 }
 
@@ -118,23 +116,32 @@ bool UBullCowCartridge::CheckUserInput(const FString &UserInput) const
 
     if (UserInput == HiddenWord)
         return true;
-    /* else if (!UserInput.IsEmpty())
+    else if (!UserInput.IsEmpty())
     {
         int32 Bulls{};
         int32 Cows{};
-        if(HiddenWordLength==UserInput.Len())
-        {
-            int32 flag{};
-            for(int32 i{};i<HiddenWordLength;++i)
+        int32 InputSize{UserInput.Len()};
+        auto CompareFunction = [&](int32 LoopLimit, int32 &SmallerSize) mutable {
+            int32 index{};
+            for (int32 i{}; i < LoopLimit; ++i)
             {
-                if(UserInput[i]==HiddenWord[i] && )
+                if(i>=SmallerSize)
+                    break;
+                if (UserInput[i] == HiddenWord[i])
                 {
                     Bulls++;
                 }
-
+                else if (HiddenWord.FindChar(UserInput[i], index))
+                {
+                    Cows++;
+                }
             }
-        }
-
-    } */
+        };
+        if (HiddenWordLength >= InputSize)
+            CompareFunction(HiddenWordLength,InputSize);
+        else if (HiddenWordLength < InputSize)
+            CompareFunction(InputSize,static_cast<int32>(HiddenWordLength));
+        PrintLine(TEXT("You got %i Bulls and %i Cows right !"), Bulls, Cows);
+    }
     return false;
 }
