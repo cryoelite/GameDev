@@ -20,9 +20,8 @@ void UBullCowCartridge::OnInput(const FString &Input) // When the player hits en
         }
         else if (!Input.IsEmpty())
         {
-            Lives--;
-
             PrintLine(FString::Printf(TEXT("You have %i lives left."), Lives));
+            Lives--;
         }
         else
             PrintLine(FString::Printf(TEXT("You have %i lives left."), Lives));
@@ -91,7 +90,7 @@ void UBullCowCartridge::InitialiseGameVars()
 
     SetHiddenWord(StringHiddenWordBook[GetNum]);
     SetHiddenWordLength();
-    SetLives(HiddenWordLength);
+    SetLives(HiddenWordLength*2);
 }
 void UBullCowCartridge::SetHiddenWord(const FString &TempHiddenWord)
 {
@@ -125,7 +124,7 @@ bool UBullCowCartridge::CheckUserInput(const FString &UserInput) const
             int32 index{};
             for (int32 i{}; i < LoopLimit; ++i)
             {
-                if(i>=SmallerSize)
+                if (i >= SmallerSize)
                     break;
                 if (UserInput[i] == HiddenWord[i])
                 {
@@ -138,10 +137,10 @@ bool UBullCowCartridge::CheckUserInput(const FString &UserInput) const
             }
         };
         if (HiddenWordLength >= InputSize)
-            CompareFunction(HiddenWordLength,InputSize);
+            CompareFunction(HiddenWordLength, InputSize);
         else if (HiddenWordLength < InputSize)
-            CompareFunction(InputSize,static_cast<int32>(HiddenWordLength));
-        PrintLine(TEXT("You got %i Bulls and %i Cows right !"), Bulls, Cows);
+            CompareFunction(InputSize, static_cast<int32>(HiddenWordLength));
+        PrintLine(TEXT("You got %i Bulls and %i Cows !"), Bulls, Cows);
     }
     return false;
 }

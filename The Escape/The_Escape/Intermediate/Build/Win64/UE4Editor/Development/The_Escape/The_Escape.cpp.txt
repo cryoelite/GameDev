@@ -1,0 +1,2 @@
+C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\Definitions.The_Escape.h
+C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Source\The_Escape\The_Escape.h

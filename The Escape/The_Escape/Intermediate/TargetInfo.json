@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "The_Escape",
+			"Path": "C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\Source\\The_Escape.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "The_EscapeEditor",
+			"Path": "C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\Source\\The_EscapeEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

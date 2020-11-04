@@ -1,0 +1,128 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "The_Escape (Debug)",
+			"request": "launch",
+			"preLaunchTask": "The_Escape Win64 Debug Build",
+			"program": "C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\Binaries\\Win64\\UE4-Win64-Debug.exe",
+			"args": [
+			],
+			"cwd": "D:\\Unreal\\UE4\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "The_Escape (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "The_Escape Win64 DebugGame Build",
+			"program": "C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
+			"args": [
+			],
+			"cwd": "D:\\Unreal\\UE4\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "The_Escape (Development)",
+			"request": "launch",
+			"preLaunchTask": "The_Escape Win64 Development Build",
+			"program": "C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\Binaries\\Win64\\UE4.exe",
+			"args": [
+			],
+			"cwd": "D:\\Unreal\\UE4\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "The_Escape (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "The_Escape Win64 Shipping Build",
+			"program": "C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
+			"args": [
+			],
+			"cwd": "D:\\Unreal\\UE4\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "The_Escape (Test)",
+			"request": "launch",
+			"preLaunchTask": "The_Escape Win64 Test Build",
+			"program": "C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\Binaries\\Win64\\UE4-Win64-Test.exe",
+			"args": [
+			],
+			"cwd": "D:\\Unreal\\UE4\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "The_EscapeEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "The_EscapeEditor Win64 Debug Build",
+			"program": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
+			"args": [
+				"C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\The_Escape.uproject"
+			],
+			"cwd": "D:\\Unreal\\UE4\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "The_EscapeEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "The_EscapeEditor Win64 DebugGame Build",
+			"program": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
+			"args": [
+				"C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\The_Escape.uproject"
+			],
+			"cwd": "D:\\Unreal\\UE4\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "The_EscapeEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "The_EscapeEditor Win64 Development Build",
+			"program": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+			"args": [
+				"C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\The_Escape.uproject"
+			],
+			"cwd": "D:\\Unreal\\UE4\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "clr",
+			"request": "launch",
+			"program": "D:\\Unreal\\UE4\\UE_4.25\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
+			"console": "externalTerminal",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"C:\\Users\\millify\\Documents\\GitHub\\GameDev\\The Escape\\The_Escape\\The_Escape.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "D:\\Unreal\\UE4\\UE_4.25"
+		}
+	]
+}
