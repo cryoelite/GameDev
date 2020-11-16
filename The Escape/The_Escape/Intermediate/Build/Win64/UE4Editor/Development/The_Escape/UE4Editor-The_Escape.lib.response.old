@@ -7,10 +7,14 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\The_EscapeEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\NewActorComponent.cpp.obj"
 "C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\The_Escape.cpp.obj"
 "C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\The_EscapeGameModeBase.cpp.obj"
+"C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\WorldPosition.cpp.obj"
+"C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\NewActorComponent.gen.cpp.obj"
 "C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\The_Escape.init.gen.cpp.obj"
 "C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\The_EscapeGameModeBase.gen.cpp.obj"
+"C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\WorldPosition.gen.cpp.obj"
 "C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\Default.rc2.res"
 /OUT:"C:\Users\millify\Documents\GitHub\GameDev\The Escape\The_Escape\Intermediate\Build\Win64\UE4Editor\Development\The_Escape\UE4Editor-The_Escape.lib"
 /INCLUDE:IMPLEMENT_MODULE_The_Escape
