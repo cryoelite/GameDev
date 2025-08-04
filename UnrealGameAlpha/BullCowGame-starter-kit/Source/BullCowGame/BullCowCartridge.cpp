@@ -41,7 +41,7 @@ void UBullCowCartridge::OnInput(const FString &Input) // When the player hits en
 }
 void UBullCowCartridge::Greet()
 {
-    PrintLine(TEXT("Welcome to BullCow game yo"));
+    PrintLine(TEXT("Welcome to BullCow game"));
 }
 void UBullCowCartridge::BeginPlay() // When the game starts
 {
